@@ -9,22 +9,22 @@ redis_conn = RedisConn().redis_conn()
 app = Sanic()
 CORS(app, automatic_options=True)
 
-@app.route("/api/getName", methods=['GET'])
+@app.route("/api/name", methods=['GET'])
 async def get_name(request):
     name = redis_conn.get('name')
     return json({"name": name})
 
-@app.route("/api/deleteName", methods=['DELETE'])
+@app.route("/api/name", methods=['DELETE'])
 async def del_name(request):
     redis_conn.delete('name')
     return json({"name": "deleted"})
 
-@app.route("/api/newName", methods=['POST'])
+@app.route("/api/name", methods=['POST'])
 async def new_name(request):
     redis_conn.set('name',request.json['newName'])
     return json({"name":request.json['newName']})
 
-@app.route("/api/updateName", methods=['PUT'])
+@app.route("/api/name", methods=['PUT'])
 async def update_name(request):
     redis_conn.set('name',request.json['updateName'])
     return json({"name":request.json['updateName']})
