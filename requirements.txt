@@ -26,7 +26,7 @@ python-systemd==231
 PyYAML==3.11
 redis==3.0.1
 requests==2.9.1
-sanic==18.12.0
+sanic==20.12.7
 Sanic-Cors==0.9.7
 Sanic-Plugins-Framework==0.6.5
 six==1.10.0
